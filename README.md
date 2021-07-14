@@ -1,4 +1,4 @@
-# Project 3
+# Caren's Cakes
 
 ## Description
 
