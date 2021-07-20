@@ -1,3 +1,4 @@
+import { IoLockClosed, IoMail, IoInformationCircle } from "react-icons/io5";
 import {
   Input,
   Stack,
@@ -8,8 +9,6 @@ import {
   Divider,
   Icon,
 } from "@chakra-ui/react";
-
-import { IoLockClosed, IoMail, IoInformationCircle } from "react-icons/io5";
 
 const SignupForm = () => {
   return (

@@ -1,3 +1,4 @@
+import { HiOutlineCake } from "react-icons/hi";
 import {
   Box,
   Icon,
@@ -9,7 +10,6 @@ import {
   Center,
   Flex,
 } from "@chakra-ui/react";
-import { HiOutlineCake } from "react-icons/hi";
 
 import SignupForm from "../components/SignUpForm";
 import LoginForm from "../components/LoginForm";

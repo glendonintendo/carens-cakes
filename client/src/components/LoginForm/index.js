@@ -1,3 +1,4 @@
+import { IoLockClosed, IoMail } from "react-icons/io5";
 import {
   Input,
   Stack,
@@ -7,8 +8,6 @@ import {
   FormControl,
   Icon,
 } from "@chakra-ui/react";
-
-import { IoLockClosed, IoMail } from "react-icons/io5";
 
 const LoginForm = () => {
   return (
