@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Flex, Box, Stack, Icon } from "@chakra-ui/react";
+import { Flex, Box, Stack, IconButton } from "@chakra-ui/react";
 import { HiOutlineCake } from "react-icons/hi";
-import { IoCart } from "react-icons/io5";
 
 import Auth from "../../utils/auth";
+
+import Cart from "../Cart";
 
 const Nav = () => {
   const logout = (e) => {
@@ -13,12 +14,16 @@ const Nav = () => {
 
   return (
     <Flex w="100vw" align="center" justify="space-around" h="10vh">
-      <Box>
-        <Link to="/">
-          <Icon as={HiOutlineCake} boxSize={50} />
-        </Link>
-      </Box>
-      <Stack justify="center" align="center" isInline spacing={[2,4,8,20]} fontSize={['16px', '20px', '24px']}>
+      <Link to="/">
+        <IconButton as={HiOutlineCake} boxSize={50} bg="transparent" />
+      </Link>
+      <Stack
+        justify="center"
+        align="center"
+        isInline
+        spacing={[2, 4, 8, 20]}
+        fontSize={["16px", "20px", "24px"]}
+      >
         <Box>
           <Link to="/">Home</Link>
         </Box>
@@ -43,9 +48,8 @@ const Nav = () => {
           </Box>
         )}
       </Stack>
-      <Box>
-        <Icon as={IoCart} boxSize={50} />
-      </Box>
+
+      <Cart />
     </Flex>
   );
 };
