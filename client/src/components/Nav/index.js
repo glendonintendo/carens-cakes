@@ -18,7 +18,7 @@ const Nav = () => {
           <Icon as={HiOutlineCake} boxSize={50} />
         </Link>
       </Box>
-      <Stack justify="center" align="center" isInline spacing={{base: 2, md: 8, lg: 20}} fontSize={{base: '16px', md:"24px"}}>
+      <Stack justify="center" align="center" isInline spacing={[2,4,8,20]} fontSize={['16px', '20px', '24px']}>
         <Box>
           <Link to="/">Home</Link>
         </Box>
