@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Flex, Box, Stack, IconButton } from "@chakra-ui/react";
+import { Flex, Box, Stack, IconButton, useColorMode } from "@chakra-ui/react";
 import { HiOutlineCake } from "react-icons/hi";
 
 import Auth from "../../utils/auth";
@@ -7,6 +7,8 @@ import Auth from "../../utils/auth";
 import Cart from "../Cart";
 
 const Nav = () => {
+  const { toggleColorMode } = useColorMode();
+
   const logout = (e) => {
     e.preventDefault();
     Auth.logout();
@@ -14,9 +16,12 @@ const Nav = () => {
 
   return (
     <Flex w="100vw" align="center" justify="space-around" h="10vh">
-      <Link to="/">
-        <IconButton as={HiOutlineCake} boxSize={50} bg="transparent" />
-      </Link>
+      <IconButton
+        as={HiOutlineCake}
+        boxSize={50}
+        bg="transparent"
+        onClick={toggleColorMode}
+      />
       <Stack
         justify="center"
         align="center"
