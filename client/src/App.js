@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
-import Explore from "./pages/Explore";
+import Browse from "./pages/Browse";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 
@@ -17,7 +17,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/explore" component={Explore} />
+          <Route exact path="/browse" component={Browse} />
           <Route exact path="/order" component={Order} />
           <Route exact path="/contact" component={Contact} />
           <Route component={NoMatch} />
