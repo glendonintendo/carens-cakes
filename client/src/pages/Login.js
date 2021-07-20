@@ -9,17 +9,21 @@ import {
   TabPanel,
   Center,
   Flex,
+  useColorMode,
 } from "@chakra-ui/react";
 
 import SignupForm from "../components/SignUpForm";
 import LoginForm from "../components/LoginForm";
 
 const Login = () => {
+  const { colorMode } = useColorMode();
+  const bgColor = { light: 'gray.200', dark: 'gray.700'}
+
   return (
-    <Flex justifyContent="center" my="10vh">
+    <Flex justifyContent="center" mt="10vh">
       <Box
-        bg="gray.200"
-        w={['80vw', '60vw', '60vw', '30vw']}
+        bg={bgColor[colorMode]}
+        w={["80vw", "60vw", "60vw", "30vw"]}
         p={3}
         boxShadow="sm"
         rounded="lg"
