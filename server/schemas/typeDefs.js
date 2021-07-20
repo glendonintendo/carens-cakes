@@ -13,8 +13,23 @@ const typeDefs = gql`
     user: User
   }
 
+  type Category {
+    _id: ID
+    name: String
+  }
+
+  type Cake {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    category: Category
+  }
+
   type Query {
     user: User
+    categories: [Category]
+    cakes(category: ID, name: String): [Cake]
   }
 
   type Mutation {

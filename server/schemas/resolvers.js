@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Category, Cake } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -11,6 +11,24 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
+    },
+    categories: async () => {
+      return await Category.find();
+    },
+    cakes: async (parent, { category, name }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category;
+      }
+
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
+
+      return await Cake.find(params).populate("category");
     },
   },
   Mutation: {
