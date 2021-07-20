@@ -7,6 +7,7 @@ import {
   TabPanels,
   TabPanel,
   Center,
+  Flex,
 } from "@chakra-ui/react";
 import { HiOutlineCake } from "react-icons/hi";
 
@@ -15,25 +16,33 @@ import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   return (
-    <Box bg="gray.200" w="350px" p={3} boxShadow="sm" rounded="lg">
-      <Center>
-        <Icon as={HiOutlineCake} boxSize={200} />
-      </Center>
-      <Tabs variant="enclosed-colored" isFitted defaultIndex={1}>
-        <TabList>
-          <Tab>Sign Up</Tab>
-          <Tab>Login</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <SignupForm />
-          </TabPanel>
-          <TabPanel>
-            <LoginForm />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </Box>
+    <Flex justifyContent="center" my="10vh">
+      <Box
+        bg="gray.200"
+        w={['80vw', '60vw', '60vw', '30vw']}
+        p={3}
+        boxShadow="sm"
+        rounded="lg"
+      >
+        <Center>
+          <Icon as={HiOutlineCake} boxSize={200} />
+        </Center>
+        <Tabs variant="enclosed-colored" isFitted defaultIndex={1}>
+          <TabList>
+            <Tab>Sign Up</Tab>
+            <Tab>Login</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <SignupForm />
+            </TabPanel>
+            <TabPanel>
+              <LoginForm />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Box>
+    </Flex>
   );
 };
 
