@@ -39,18 +39,15 @@ const SignupForm = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log("oi")
     try {
       const mutationResponse = await addUser({
         variables: {
           ...formState,
         },
       });
-      console.log(mutationResponse);
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
     } catch (err) {
-      console.log("unable to add user")
       console.log(err);
     }
   };
