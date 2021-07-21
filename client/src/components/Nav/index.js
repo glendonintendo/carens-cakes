@@ -33,9 +33,6 @@ const Nav = () => {
           <Link to="/">Home</Link>
         </Box>
         <Box>
-          <Link to="/browse">Browse</Link>
-        </Box>
-        <Box>
           <Link to="/order">Order</Link>
         </Box>
         <Box>
