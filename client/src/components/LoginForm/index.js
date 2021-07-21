@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { IoLockClosed, IoMail } from "react-icons/io5";
+import { useMutation } from "@apollo/client";
 import {
   Input,
   Stack,
@@ -10,17 +12,52 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 
+import Auth from "../../utils/auth";
+import { LOGIN_USER } from "../../utils/mutations";
+
 const LoginForm = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
   const { colorMode } = useColorMode();
   const inputBorder = { light: "gray.500", dark: "gray.200" };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const mutationResponse = await login({
+        variables: { ...formState },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (err) {
+      console.log(error);
+    }
+  };
+
   return (
-    <form action="submit">
+    <form onSubmit={handleFormSubmit}>
       <Stack spacing={3}>
         <FormControl isRequired>
           <InputGroup borderColor={inputBorder[colorMode]}>
             <InputLeftElement children={<Icon as={IoMail} />} />
-            <Input type="email" placeholder="Email" aria-label="Email" />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Email"
+              aria-label="Email"
+              onChange={handleChange}
+            />
           </InputGroup>
         </FormControl>
 
@@ -28,9 +65,11 @@ const LoginForm = () => {
           <InputGroup borderColor={inputBorder[colorMode]}>
             <InputLeftElement children={<Icon as={IoLockClosed} />} />
             <Input
+              name="password"
               type="password"
               placeholder="Password"
               aria-label="Password"
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>

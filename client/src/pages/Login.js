@@ -17,7 +17,7 @@ import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   const { colorMode } = useColorMode();
-  const bgColor = { light: 'gray.200', dark: 'gray.700'}
+  const bgColor = { light: "gray.200", dark: "gray.700" };
 
   return (
     <Flex justifyContent="center" mt="10vh">
