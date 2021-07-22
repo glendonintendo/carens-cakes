@@ -1,5 +1,7 @@
 const User = require("./User");
-const Cake = require("./Cake");
-const Category = require("./Category");
+const CakeType = require("./CakeType");
+const CakeFlavor = require("./CakeFlavor");
+const Frosting = require("./Frosting");
+const Decoration = require("./Decoration");
 
-module.exports = { User, Category, Cake };
+module.exports = { User, CakeFlavor, CakeType, Frosting, Decoration };
