@@ -34,7 +34,7 @@ export const QUERY_DECORATIONS = gql`
   }
 `;
 
-export const FROSTINGS = gql`
+export const QUERY_FROSTINGS = gql`
   {
     frostings {
       _id
