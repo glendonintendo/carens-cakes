@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { IoCart } from "react-icons/io5";
 import {
   IconButton,
@@ -11,21 +11,25 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  useDisclosure,
 } from "@chakra-ui/react";
 
+import { toggledCart } from "../../utils/cartSlice";
+
 const Cart = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
+  const { cart, cartOpen } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const toggleCart = () => {
+    dispatch(toggledCart());
+  }
 
   return (
     <>
-      <IconButton as={IoCart} boxSize={50} onClick={onOpen} bg="transparent" />
+      <IconButton as={IoCart} boxSize={50} onClick={toggleCart} bg="transparent" />
       <Drawer
-        isOpen={isOpen}
+        isOpen={cartOpen}
         placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
+        onClose={toggleCart}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -37,7 +41,7 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button variant="outline" mr={3} onClick={toggleCart}>
               Cancel
             </Button>
             <Button colorScheme="blue">Save</Button>
