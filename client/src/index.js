@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
 
 import { ChakraProvider } from "@chakra-ui/react";
+import { Provider } from "react-redux";
 import {
   ApolloProvider,
   ApolloClient,
@@ -11,6 +10,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+
+import App from "./App";
+import store from "./utils/store";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -34,9 +36,11 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider>
+          <App />
+        </ChakraProvider>
+      </Provider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
