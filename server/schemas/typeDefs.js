@@ -17,18 +17,21 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    image: String
   }
 
   type Frosting {
     _id: ID
     name: String
     description: String
+    image: String
   }
 
   type Decoration {
     _id: ID
     name: String
     description: String
+    image: String
   }
 
   type CakeType {
