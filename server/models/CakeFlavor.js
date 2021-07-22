@@ -13,6 +13,11 @@ const cakeFlavorSchema = new Schema({
     required: true,
     trim: true,
   },
+  image: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 const CakeFlavor = mongoose.model("CakeFlavor", cakeFlavorSchema);

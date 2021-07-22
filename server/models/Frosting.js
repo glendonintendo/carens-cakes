@@ -13,6 +13,11 @@ const frostingSchema = new Schema({
     required: true,
     trim: true,
   },
+  image: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 const Frosting = mongoose.model("Frosting", frostingSchema);

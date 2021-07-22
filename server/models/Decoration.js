@@ -13,6 +13,11 @@ const decorationSchema = new Schema({
     required: true,
     trim: true,
   },
+  image: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 const Decoration = mongoose.model("Decoration", decorationSchema);
