@@ -1,38 +1,46 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_CATEGORIES = gql`
+export const QUERY_CAKE_TYPES = gql`
   {
-    categories {
-      _id
-      name
-    }
-  }
-`;
-
-export const QUERY_CAKES = gql`
-  query cakes($category: ID) {
-    cakes(category: $category) {
+    cakeTypes {
       _id
       name
       description
       image
-      category {
-        _id
-      }
+      price
     }
   }
 `;
 
-export const QUERY_ALL_CAKES = gql`
+export const QUERY_CAKE_FLAVORS = gql`
   {
-    cakes {
+    cakeFlavors {
       _id
       name
       description
       image
-      category {
-        _id
-      }
     }
   }
-`; 
+`;
+
+export const QUERY_DECORATIONS = gql`
+  {
+    decorations {
+      _id
+      name
+      description
+      image
+    }
+  }
+`;
+
+export const FROSTINGS = gql`
+  {
+    frostings {
+      _id
+      name
+      description
+      image
+    }
+  }
+`;
