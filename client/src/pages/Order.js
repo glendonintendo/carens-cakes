@@ -6,8 +6,6 @@ import DecorationPanel from "../components/DecorationPanel";
 import FrostingPanel from "../components/FrostingPanel";
 
 const Order = () => {
-
-
   return (
     <Box w={["100vw", "100vw", "80vw"]} mx="auto">
       <Tabs isFitted variant="line">

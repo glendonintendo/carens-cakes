@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { Button } from "@chakra-ui/react";
+import { useQuery } from "@apollo/client";
+
+import { QUERY_CAKE_FLAVORS } from "../../utils/queries";
 
 const CakeFlavorPanel = () => {
-  const [chosenFlavor, setChosenFlavor] = useState(0);
+  const { loading, data: cakeFlavorData } = useQuery(QUERY_CAKE_FLAVORS);
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  if (cakeFlavorData) {
+    console.log(cakeFlavorData);
+  }
 
-    setChosenFlavor((prev) => prev + 1);
-  };
+  const [chosenFlavor, setChosenFlavor] = useState();
 
-  return (
-    <div>
-      {chosenFlavor}
-      <Button onClick={handleClick} />
-    </div>
-  );
+  return <div>FlavorTown</div>;
 };
 
 export default CakeFlavorPanel;
