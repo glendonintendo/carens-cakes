@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Category, Cake } = require("../models");
+const { User, CakeFlavor, CakeType, Frosting, Decoration } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -12,15 +12,11 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    categories: async () => {
-      return await Category.find();
+    cakeFlavors: async () => {
+      return await CakeFlavor.find();
     },
-    cakes: async (parent, { category, name }) => {
+    cakeTypes: async (parent, { name }) => {
       const params = {};
-
-      if (category) {
-        params.category = category;
-      }
 
       if (name) {
         params.name = {
@@ -28,7 +24,13 @@ const resolvers = {
         };
       }
 
-      return await Cake.find(params).populate("category");
+      return await CakeType.find(params);
+    },
+    frostings: async () => {
+      return await Frosting.find();
+    },
+    decorations: async () => {
+      return await Decoration.find();
     },
   },
   Mutation: {
